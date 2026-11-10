@@ -23,8 +23,8 @@
 ### Автоматические светлая и тёмная темы
 
 <p align="center">
-  <a href="docs/assets/cbl-dark.png"><img src="docs/assets/cbl-dark.png" alt="Настоящий тёмный popup CBL: demo-аккаунты, шкалы и раскрытые ручные сбросы" width="280"></a>
-  <a href="docs/assets/cbl-light.png"><img src="docs/assets/cbl-light.png" alt="Настоящий светлый popup CBL: demo-аккаунты и отдельные сроки ручных сбросов" width="280"></a>
+  <a href="docs/assets/cbl-dark.png"><img src="docs/assets/cbl-dark.png" alt="Настоящий тёмный popup CBL: demo-аккаунты, шкалы и раскрытые ручные сбросы" width="40%"></a>
+  <a href="docs/assets/cbl-light.png"><img src="docs/assets/cbl-light.png" alt="Настоящий светлый popup CBL: demo-аккаунты и отдельные сроки ручных сбросов" width="40%"></a>
 </p>
 
 Здоровые карточки не перегружены статусами. Плановое обновление окна показано под шкалой, а **Use by** — отдельный срок, до которого можно использовать ручной сброс. Маленькая стрелка раскрывает список предложений.

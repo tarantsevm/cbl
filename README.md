@@ -23,8 +23,8 @@ These are captures of the real GNOME Shell extension, using **synthetic demo acc
 ### Automatic dark and light palettes
 
 <p align="center">
-  <a href="docs/assets/cbl-dark.png"><img src="docs/assets/cbl-dark.png" alt="Real CBL dark popup with demo accounts, usage meters and expanded reset offers" width="280"></a>
-  <a href="docs/assets/cbl-light.png"><img src="docs/assets/cbl-light.png" alt="Real CBL light popup with demo accounts and individual reset deadlines" width="280"></a>
+  <a href="docs/assets/cbl-dark.png"><img src="docs/assets/cbl-dark.png" alt="Real CBL dark popup with demo accounts, usage meters and expanded reset offers" width="40%"></a>
+  <a href="docs/assets/cbl-light.png"><img src="docs/assets/cbl-light.png" alt="Real CBL light popup with demo accounts and individual reset deadlines" width="40%"></a>
 </p>
 
 Healthy cards stay quiet. Scheduled window renewal is shown below its meter; an offer's **Use by** deadline is a separate expiration time. The small disclosure arrow expands the individual offers.
