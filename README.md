@@ -22,14 +22,16 @@ These are captures of the real GNOME Shell extension, using **synthetic demo acc
 
 ### Automatic dark and light palettes
 
-<img src="docs/assets/cbl-dark.png" alt="Real CBL dark popup with demo accounts, usage meters and expanded reset offers" width="410">
-<img src="docs/assets/cbl-light.png" alt="Real CBL light popup with demo accounts and individual reset deadlines" width="410">
+<p align="center">
+  <a href="docs/assets/cbl-dark.png"><img src="docs/assets/cbl-dark.png" alt="Real CBL dark popup with demo accounts, usage meters and expanded reset offers" width="280"></a>
+  <a href="docs/assets/cbl-light.png"><img src="docs/assets/cbl-light.png" alt="Real CBL light popup with demo accounts and individual reset deadlines" width="280"></a>
+</p>
 
 Healthy cards stay quiet. Scheduled window renewal is shown below its meter; an offer's **Use by** deadline is a separate expiration time. The small disclosure arrow expands the individual offers.
 
 ### Explicit confirmation before applying a reset
 
-<img src="docs/assets/cbl-reset-confirmation.png" alt="Reset confirmation identifies the demo account and offer, with Cancel focused" width="410">
+<img src="docs/assets/cbl-reset-confirmation.png" alt="Reset confirmation identifies the demo account and offer, with Cancel focused" width="300">
 
 **Apply** first opens a separate confirmation, with **Cancel** focused. The backend revalidates the account and offer, prevents duplicate submissions and checks the provider's state afterward. An uncertain attempt remains guarded across restarts instead of being silently retried.
 
@@ -37,7 +39,7 @@ Healthy cards stay quiet. Scheduled window renewal is shown below its meter; an 
 
 ### Connection settings
 
-<img src="docs/assets/cbl-settings.png" alt="CBL preferences with app-specific proxy controls and a loopback example" width="540">
+<img src="docs/assets/cbl-settings.png" alt="CBL preferences with app-specific proxy controls and a loopback example" width="440">
 
 Open **GNOME Extensions → cbl → Settings → Connection**. Enable a proxy and enter an `http://`, `https://`, `socks5://` or `socks5h://` URL. With **Use proxy** off, CBL connects directly and ignores saved and service-level proxy settings. These controls affect CBL, not your browser or system routing. Refresh after saving to use the new settings immediately.
 
