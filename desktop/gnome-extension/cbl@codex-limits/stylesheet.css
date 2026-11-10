@@ -1,0 +1,322 @@
+.cbl-popup-item {
+  padding: 0;
+}
+
+.cbl-popup {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  padding: 14px;
+  spacing: 12px;
+}
+
+.cbl-header {
+  spacing: 12px;
+  margin-bottom: 2px;
+}
+
+.cbl-heading {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.cbl-header-refresh {
+  color: #f4f4f5;
+  background-color: #202020;
+  border: 1px solid #323236;
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cbl-subheading,
+.cbl-card-meta {
+  color: #a8a8b3;
+  font-size: 12px;
+}
+
+.cbl-accounts-box {
+  spacing: 6px;
+}
+
+.cbl-account-row,
+.cbl-account-card,
+.cbl-empty-card {
+  background: #202020;
+  border-radius: 12px;
+  color: #d8d8df;
+  font-size: 12px;
+  padding: 8px 10px;
+}
+
+.cbl-account-card {
+  border: 1px solid #323236;
+  spacing: 8px;
+}
+
+.cbl-empty-card {
+  border: 1px solid #323236;
+  spacing: 6px;
+}
+
+.cbl-empty-title {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.cbl-empty-text {
+  color: #a8a8b3;
+  font-size: 12px;
+}
+
+.cbl-account-header,
+.cbl-meter-row {
+  spacing: 8px;
+}
+
+.cbl-meter {
+  spacing: 2px;
+}
+
+.cbl-meter-reset {
+  color: #a8a8b3;
+  font-size: 10px;
+  margin-left: 50px;
+}
+
+.cbl-account-title {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.cbl-plan-row { spacing: 6px; }
+.cbl-reset-toggle {
+  color: #f4f4f5;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  padding: 0 4px;
+  min-width: 20px;
+  min-height: 20px;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cbl-reset-toggle:hover,
+.cbl-reset-toggle:focus { background-color: #494950; }
+.cbl-light-theme .cbl-reset-toggle {
+  color: #202124;
+  background-color: transparent;
+}
+.cbl-light-theme .cbl-reset-toggle:hover,
+.cbl-light-theme .cbl-reset-toggle:focus { background-color: #d1d5db; }
+.cbl-reset-use { color: #ffffff; background-color: #245bb5; padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 700; }
+.cbl-reset-use:hover, .cbl-reset-use:focus { background-color: #17478f; }
+.cbl-light-theme .cbl-reset-use { color: #ffffff; background-color: #245bb5; }
+.cbl-light-theme .cbl-reset-use:hover, .cbl-light-theme .cbl-reset-use:focus { background-color: #17478f; }
+.cbl-reset-note { color: #a8a8b3; font-size: 12px; margin-top: 6px; }
+.cbl-light-theme .cbl-reset-note { color: #55575b; }
+
+.cbl-plan-pill {
+  text-align: center;
+  border-radius: 999px;
+  color: #06140c;
+  background-color: #2ed36f;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 7px;
+}
+
+
+.cbl-meter-label {
+  color: #a8a8b3;
+  font-size: 11px;
+  font-weight: 700;
+  width: 42px;
+}
+
+.cbl-meter-value {
+  color: #f4f4f5;
+  font-size: 11px;
+  font-weight: 800;
+  width: 48px;
+}
+
+.cbl-mini-meter {
+  width: 160px;
+  height: 8px;
+}
+
+.cbl-badge {
+  color: #06140c;
+  background-color: #2ed36f;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cbl-card,
+.cbl-login-box {
+  background-color: #202020;
+  border: 1px solid #323236;
+  border-radius: 18px;
+  padding: 14px;
+  spacing: 8px;
+}
+
+.cbl-card-title {
+  color: #a8a8b3;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cbl-card-value {
+  color: #f4f4f5;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.cbl-progress-track {
+  width: 260px;
+  height: 10px;
+  background-color: #e8e8ec;
+  border-radius: 999px;
+}
+
+.cbl-progress-fill {
+  height: 10px;
+  background-color: #2ed36f;
+  border-radius: 999px;
+}
+
+.cbl-progress-fill:warning {
+  background-color: #f5c542;
+}
+
+.cbl-account-state {
+  font-size: 11px;
+  color: #a8a8b3;
+}
+
+.cbl-login-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cbl-state-ready { color: #2ed36f; }
+.cbl-state-warning { color: #f5c542; }
+.cbl-state-error { color: #ff7373; }
+.cbl-state-updating { color: #a8c7fa; }
+
+.cbl-account-remove {
+  color: #a8a8b3;
+  border-radius: 6px;
+  padding: 0 5px;
+  font-size: 16px;
+}
+
+.cbl-account-remove:hover,
+.cbl-account-remove:focus {
+  color: #ff7373;
+  background-color: #343036;
+}
+
+.cbl-remove-confirm {
+  background-color: #202020;
+  border: 1px solid #7f4148;
+  border-radius: 12px;
+  padding: 10px;
+  spacing: 10px;
+}
+
+.cbl-remove-actions { spacing: 8px; }
+.cbl-confirm-button {
+  background-color: #323236;
+  color: #f4f4f5;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+.cbl-confirm-button:hover,
+.cbl-confirm-button:focus { background-color: #494950; }
+.cbl-danger { color: #ff8f8f; }
+
+.cbl-progress-fill:critical {
+  background-color: #ff5c5c;
+}
+
+.cbl-light-theme {
+  color: #202124;
+  background-color: #ffffff;
+}
+
+.cbl-light-theme .cbl-heading,
+.cbl-light-theme .cbl-empty-title,
+.cbl-light-theme .cbl-account-title,
+.cbl-light-theme .cbl-card-value,
+.cbl-light-theme .cbl-meter-value {
+  color: #202124;
+}
+
+.cbl-light-theme .cbl-subheading,
+.cbl-light-theme .cbl-card-meta,
+.cbl-light-theme .cbl-empty-text,
+.cbl-light-theme .cbl-meter-reset,
+.cbl-light-theme .cbl-meter-label,
+.cbl-light-theme .cbl-card-title,
+.cbl-light-theme .cbl-account-remove,
+.cbl-light-theme .cbl-account-state {
+  color: #55575b;
+}
+
+.cbl-light-theme .cbl-account-row,
+.cbl-light-theme .cbl-account-card,
+.cbl-light-theme .cbl-empty-card,
+.cbl-light-theme .cbl-card,
+.cbl-light-theme .cbl-login-box,
+.cbl-light-theme .cbl-remove-confirm {
+  color: #202124;
+  background-color: #f1f2f4;
+  border-color: #c5c7ca;
+}
+
+.cbl-light-theme .cbl-header-refresh,
+.cbl-light-theme .cbl-confirm-button {
+  color: #202124;
+  background-color: #e5e7eb;
+  border-color: #b8bbc0;
+}
+
+.cbl-light-theme .cbl-progress-track {
+  background-color: #c5c7ca;
+}
+
+.cbl-light-theme .cbl-state-ready { color: #147a3d; }
+.cbl-light-theme .cbl-state-warning { color: #805400; }
+.cbl-light-theme .cbl-state-error { color: #b4232f; }
+.cbl-light-theme .cbl-state-updating { color: #2458a6; }
+.cbl-light-theme .cbl-danger { color: #a21d2d; }
+.cbl-light-theme .cbl-plan-pill,
+.cbl-light-theme .cbl-badge { color: #06391b; }
+
+.cbl-light-theme .cbl-account-remove:hover,
+.cbl-light-theme .cbl-account-remove:focus {
+  color: #a21d2d;
+  background-color: #f4dce0;
+}
+
+.cbl-light-theme .cbl-header-refresh:hover,
+.cbl-light-theme .cbl-header-refresh:focus,
+.cbl-light-theme .cbl-confirm-button:hover,
+.cbl-light-theme .cbl-confirm-button:focus {
+  background-color: #d1d3d7;
+  box-shadow: inset 0 0 0 2px #55575b;
+}
+
+.cbl-light-theme .cbl-progress-fill { background-color: #147a3d; }
+.cbl-light-theme .cbl-progress-fill:warning { background-color: #805400; }
+.cbl-light-theme .cbl-progress-fill:critical { background-color: #b4232f; }

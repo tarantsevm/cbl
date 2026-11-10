@@ -1,0 +1,74 @@
+import assert from 'node:assert/strict';
+import {accountErrorMessage, accountWorstRemaining, overallUsageState, accountPresentation, AccountRemoval, loginErrorPresentation} from './ui-data.js';
+for (const [error, title] of [
+    ['403 unsupported_country_region_territory', 'Вход недоступен'],
+    [new Error('request timed out'), 'Сервер не ответил'],
+    ['dial tcp: connection refused', 'Нет соединения с OpenAI'],
+    ['429 Too many requests', 'Слишком много запросов'],
+    ['403 Forbidden', 'Не удалось войти'],
+    ['<html>SECRET</html>'.repeat(10000), 'Не удалось войти'],
+    [null, 'Не удалось войти'],
+]) {
+    const result = loginErrorPresentation(error);
+    assert.equal(result.title, title);
+    assert.ok(result.title.length < 40 && result.detail.length < 160, 'messages stay bounded');
+    assert.doesNotMatch(result.detail, /SECRET|<html>|403|tcp/);
+}
+assert.equal(accountErrorMessage('codex usage request failed: 401 Unauthorized: {"error":{"code":"invalid_jwt"}}; token refresh also failed: invalid_refresh_token'), 'Session expired — add this account again');
+assert.equal(accountErrorMessage({code: 'invalid_jwt'}), 'Session expired — add this account again');
+assert.equal(accountErrorMessage({code: 'invalid_refresh_token'}), 'Session expired — add this account again');
+assert.equal(accountErrorMessage({message: '<html>' + 'x'.repeat(5000) + '</html>'}), 'Account unavailable');
+assert.equal(accountWorstRemaining({error: 'invalid_jwt', windows: []}), null);
+assert.equal(overallUsageState([{windows: [{remaining: 100}]}, {error: 'failed'}]), 'error');
+assert.equal(overallUsageState([{windows: [{remaining: 95}]}]), 'good');
+const ready = {status: 'ready', fetched_at: '2026-11-03T17:00:00Z'};
+assert.equal(accountPresentation(ready).label, '', 'healthy accounts have no status line');
+assert.equal(accountPresentation(ready).detail, undefined, 'last update time is not displayed');
+assert.equal(accountPresentation({status: 'ready'}).label, 'Нет данных');
+assert.equal(accountPresentation(ready, {updating: true}).label, '', 'refresh does not add a healthy account notification');
+assert.equal(accountPresentation({status: 'auth_required'}, {updating: true}).label, 'Нужен вход', 'refresh must not hide auth problems');
+assert.equal(accountPresentation({status: 'connection_error'}, {updating: true}).label, 'Ошибка соединения', 'refresh must not hide account problems');
+assert.equal(accountPresentation({status: 'auth_required'}).label, 'Нужен вход');
+assert.equal(accountPresentation({status: 'connection_error'}).label, 'Ошибка соединения');
+assert.equal(accountPresentation({error: 'invalid_refresh_token'}).label, 'Нужен вход');
+assert.equal(accountPresentation({status: 'rate_limited'}).label, 'Слишком много запросов');
+assert.equal(accountPresentation({status: 'error', error: '<html>SECRET</html>'}).label, 'Ошибка получения данных');
+assert.equal(accountPresentation({status: 'ready', fetched_at: 'invalid-date'}).label, 'Нет данных');
+assert.equal(accountPresentation({status: 'ready', fetched_at: '2026-11-03T17:00:00Z'}, {unavailable: true}).label, 'Сервис недоступен');
+const key = 'a'.repeat(64);
+const other = 'b'.repeat(64);
+const removal = new AccountRemoval();
+assert.equal(removal.confirm(), null, 'no removal without explicit request');
+assert.equal(removal.request('../auth.json', 'invalid'), false);
+assert.equal(removal.request(key, 'First'), true);
+assert.equal(removal.busy, false, 'first click only asks for confirmation');
+assert.equal(removal.cancel(), true);
+assert.equal(removal.confirm(), null, 'cancel never produces a DELETE key');
+assert.equal(removal.request(key, 'First'), true);
+assert.equal(removal.confirm(), key);
+assert.equal(removal.confirm(), null, 'duplicate confirmation blocked');
+assert.equal(removal.request(other, 'Other'), false, 'cannot retarget inflight deletion');
+assert.equal(removal.cancel(), false, 'cannot cancel an already sent request');
+removal.finish(false);
+assert.equal(removal.confirm(), key, 'failure can retry same account');
+removal.finish(true);
+assert.equal(removal.pending, null);
+assert.equal(removal.confirm(), null);
+console.log('UI states and confirmed account-removal transitions verified');
+
+const {resetCreditPresentation} = await import('./ui-data.js');
+for (const credits of [undefined, null, {}, {available_count: null}, {available_count: 0}, {available_count: -1}, {available_count: '2'}]) {
+    assert.equal(resetCreditPresentation(credits).visible, false);
+}
+assert.deepEqual(resetCreditPresentation({available_count: 2, applicable_available_count: 0}), {
+    visible: true, badge: '↺ 2', label: 'Resets: 2 · expiry unavailable', offers: [],
+});
+const offers = [
+    {offer_key: other, scope: 'full', expires_at: '2099-12-01T20:59:00Z'},
+    {offer_key: key, scope: 'full', expires_at: '2099-11-30T19:20:00Z'},
+];
+const resetView = resetCreditPresentation({available_count: 2, offers});
+assert.equal(resetView.offers[0].offer_key, key);
+assert.match(resetView.label, /Next expiry/);
+assert.equal(resetCreditPresentation({available_count: 0, offers: [{...offers[0], expires_at: '2000-01-01T00:00:00Z'}]}).visible, false);
+console.log('Reset inventory, unknown details and expiry ordering verified');
